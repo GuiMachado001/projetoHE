@@ -10,20 +10,20 @@
 <body>
     <div class="containerBox">
 
-        <form action="processa_form.php" method="POST">
+        <form action="processa_form.php" method="POST" >
 
             <div class="containerTitulo">
-                <label for="titulo">Titulo:</label>
-                <input type="text" name="titulo" id="titulo" required>
+                <label for="titulo" class="tituloLbl">Titulo:</label>
+                <input type="text" name="titulo" id="titulo" >
             </div>
             
             <div class="containerDesc">
-                <label for="desc">Descrição</label>
-                <textarea name="desc" id="desc" cols="" rows="20" required></textarea>
+                <label for="desc" class="descLbl">Descrição</label>
+                <textarea name="desc" id="desc" cols="" rows="20" ></textarea>
             </div>
                 
             <div class="containerCategoria">
-                <label for="categoria">Categoria:</label>
+                <label for="categoria" class="categoriaLbl">Categoria:</label>
 
                 <select name="categoria" id="categoria">
                     <option value="Opcao1" class="opcaoCategoria">Opção 1</option>
@@ -34,7 +34,9 @@
             </div>
 
             <div class="containerBtn">
-                <input type="submit" value="Enviar">
+                <a class="roletarBtn">Roletar</a>
+                <a class="cadastroCategoriaBtn" href="cadastroCategoria.php">Cadastrar Categoria</a>
+                <input type="submit" value="Cadastrar">
             </div>
 
         </form>

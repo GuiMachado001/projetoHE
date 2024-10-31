@@ -3,14 +3,11 @@
     padding: 0;
     font-family: monospace;   
 }
-
 :root{
     --colorBtn: #4B1821;
 
     --colorBorder: #a32738;
 }
-
-
 body{
     width: 100%;
     height: 100vh;
@@ -30,7 +27,7 @@ form{
 
     display: flex;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     flex-direction: column;
 }
 .containerBox{
@@ -50,17 +47,39 @@ form{
     align-items: center;
 }
 
-.containerTitulo{
+.containerTile{
     width: 70%;
     height: 80px;
     padding: 10px;
+
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.containerTile h1{
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.containerNomeCategoria{
+    width: 70%;
+    height: 80px;
+    padding: 10px;
+    margin-top: 5%;
+
 
     display: flex;
     /* align-items: center; */
     justify-content: center;
     flex-direction: column;
+
 }
-#titulo{
+.nomeCat{
+    font-size: 20px;
+    font-weight: 600;
+}
+#nomeCat{
     width: 100%;
     height: 40px;
     border-radius: 10px;
@@ -70,76 +89,17 @@ form{
     font-weight: 600;
     outline: none;    
 }
-.tituloLbl, .descLbl, .categoriaLbl{
-    color: white;
-    font-size: 20px;
-}
 
-.containerDesc{
+.containerBtn{
     width: 70%;
     height: 350px;
     padding: 10px;
 
     display: flex;
-    /* align-items: center; */
-    justify-content: center;
-    flex-direction: column;
-}
-#desc{
-    /* width: 100%; */
-    /* height: 40px; */
-    border-radius: 10px;
-    border: 1px solid #33404D;
-    /* padding-left: 10px; */
-    font-size: 20px;
-    font-weight: 600;
-    outline: none;    
-}
-
-.containerCategoria{
-    width: 70%;
-    height: 80px;
-    padding: 10px;
-
-    display: flex;
-    /* align-items: center; */
-    justify-content: center;
-    flex-direction: column;
-}
-#categoria{
-    width: 100%;
-    height: 40px;
-    border-radius: 10px;
-    border: 1px solid #33404D;
-    /* padding-left: 10px; */
-    font-size: 20px;
-    font-weight: 300;
-    outline: none;   
-}
-
-.containerBtn{
-    width: 70%;
-    height: 80px;
-    padding: 10px;
-
-    display: flex;
     align-items: end;
     justify-content: space-between;
-    
 }
-
-.containerBtn input{
-    width: 200px;
-    height: 40px;
-    background-color: var(--colorBtn);
-    color: white;
-    border-radius: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    border: none;
-}
-
-.cadastroCategoriaBtn, .roletarBtn{
+.voltarBtn{
     width: 200px;
     height: 40px;
     background-color: var(--colorBtn);
@@ -154,29 +114,13 @@ form{
     text-decoration: none;
 }
 
-#titulo:hover{
-    border: 3px solid var(--colorBorder);
+.cadastroCategoriaBtn{
+    width: 200px;
+    height: 40px;
+    background-color: var(--colorBtn);
+    color: white;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
 }
-#titulo:focus{
-    border: 3px solid var(--colorBorder);
-}
-
-#desc:hover{
-    border: 3px solid var(--colorBorder);
-}
-#desc:focus{
-    border: 3px solid var(--colorBorder);
-}
-
-
-#categoria:hover{
-    border: 3px solid var(--colorBorder);
-}
-#categoria:focus{
-    border: 3px solid var(--colorBorder);
-}
-
-.opcaoCategoria:hover{
-    border: 3px solid var(--colorBorder);
-}
-
