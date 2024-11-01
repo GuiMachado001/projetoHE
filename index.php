@@ -1,45 +1,87 @@
+<?php
+
+define ('HOST', 'localhost');
+define ('USER', 'root');
+define ('PASS', 'suporte@22');
+define ('BASE', 'projetohe');
+
+try {
+    $pdo = new PDO("mysql:host=".HOST.";dbname=".BASE, USER, PASS);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Conexão falhou: " . $e->getMessage());
+}
+
+function acharEmail($pdo, $email) {
+    $sql = $pdo->prepare("SELECT id_usuario, senha FROM usuario WHERE email = :m");
+    $sql->bindValue(":m", $email);
+    $sql->execute();
+
+    return $sql->fetch(PDO::FETCH_ASSOC);
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projeto HE</title>
+    <title>Tela Login</title>
 
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/login.css">
+
 </head>
 <body>
-<!-- <?php include 'processa_form.php'; ?> -->
+    <div class="containerGeral">
+        <div class="containerImg">
+            <img src="img/logo.png" alt="">
+        </div>
+        <form action="" method="POST">
 
-    <div class="containerBox">
-
-        <form action="processa_form.php" method="POST" >
-
-            <div class="containerTitulo">
-                <label for="titulo" class="tituloLbl">Titulo:</label>
-                <input type="text" name="titulo" id="titulo" required>
+            <div class="containerEmail">
+                <label >Usuário:</label>
+                <input type="email" name="email" placeholder="Digite seu E-mail"><br><br>
             </div>
             
-            <div class="containerDesc">
-                <label for="desc" class="descLbl">Descrição</label>
-                <textarea name="desc" id="desc" cols="" rows="20" required></textarea>
+            <div class="containerPass">
+                <label>Senha:</label>
+                <input type="password" name="senha" placeholder="Digite sua Senha"><br><br>
             </div>
-                
-            <div class="containerCategoria">
-            <label for="categoria" class="categoriaLbl" required>Categoria:</label>
-
-                <select name="categoria" id="categoria">
-                    <?php echo $options; ?>
-                </select>
+            
+            <div class="containerButtons">
+                <input type="submit" value="logar" class="inpLogar"><br><br>
+                <a href="cadastroTitulo.php" class="Cadastrar">Cadastre-se</a>
             </div>
-
-            <div class="containerBtn">
-                <a class="roletarBtn" href="roletar.php">Roletar</a>
-                <a class="cadastroCategoriaBtn" href="cadastroCategoria.php">Cadastrar Categoria</a>
-                <input type="submit" value="Cadastrar">
-            </div>
-
         </form>
+    </div>
 
-   </div>
+    <?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+
+    if (!empty($email) && !empty($senha)) {
+        $usuario = acharEmail($pdo, $email); // Chama a função
+
+        // Adicione esta linha para ver o que está sendo retornado
+        var_dump($usuario);
+
+        if ($usuario) {
+            // Comparar diretamente, já que as senhas não estão hashadas
+            if ($senha === $usuario['senha']) {
+                header("Location: cadastroTitulo.php");
+                exit();
+            } else {
+                echo "<p>Senha incorreta.</p>";
+            }
+        } else {
+            echo "<p>Email ou senha incorretos.</p>";
+        }
+    } else {
+        echo "<p>Por favor, preencha todos os campos.</p>";
+    }
+}
+?>
 </body>
 </html>

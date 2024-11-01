@@ -1,3 +1,36 @@
+<?php
+
+define ('HOST', 'localhost');
+define ('USER', 'root');
+define ('PASS', '');
+define ('BASE', 'projetohe');
+
+$conn = new mysqli('localhost', 'root', 'suporte@22', 'projetohe');
+
+if ($conn->connect_error) {
+    die("Conexão falhou: " . $conn->connect_error);
+}
+
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        $nomeCategoria = $conn->real_escape_string($_POST['nomeCat']);
+        
+
+        $sql_cadastrar_Categoria = "INSERT INTO categoria(nome) VALUE ('$nomeCategoria')";
+        if ($conn->query($sql_cadastrar_Categoria) === TRUE) {
+            echo "<h2>Categoria cadastrada: $nomeCategoria</h2>";
+        } else {
+            echo "Erro ao cadastrar categoria: " . $conn->error;
+        }
+
+
+        echo "<h2>Titulo: $nomeCat</h2>";
+
+    }else{
+        echo "ERRO ao enviar";
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -10,10 +43,10 @@
 </head>
 <body>
 
-    <?php include 'processa_cadastro.php'; ?>
+    <!-- <?php include 'processa_cadastro.php'; ?> -->
 
     <div class="containerBox">
-        <form action="processa_cadastro.php" method="POST">
+        <form action="" method="POST">
             <div class="containerTile">
                 <h1>Cadastrar Categoria</h1>
             </div>
@@ -24,8 +57,8 @@
             </div>
 
             <div class="containerBtn">
-                <a class="voltarBtn" href="index.php">Voltar</a>
-                <button class="cadastroCategoriaBtn" href="cadastroCategoria.php">Cadastrar Categoria</button>
+                <a class="voltarBtn" href="cadastroTitulo.php">Voltar</a>
+                <button class="cadastroCategoriaBtn" href="cadastroTitulo.php">Cadastrar Categoria</button>
             </div>
         </form>
     </div>

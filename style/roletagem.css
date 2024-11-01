@@ -24,15 +24,6 @@ body{
     justify-content: center;
 }
 
-form{
-    width: 90%;
-    height: 90%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
 .containerBox{
     width: 90%;
     height: 90%;
@@ -50,7 +41,18 @@ form{
     align-items: center;
 }
 
-.containerTitulo{
+.containerOrganizacional{
+    width: 90%;
+    height: 80%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 3%;
+}
+
+.containerTitulo, .containerCategoria{
     width: 70%;
     height: 80px;
     padding: 10px;
@@ -60,19 +62,19 @@ form{
     justify-content: center;
     flex-direction: column;
 }
-#titulo{
-    width: 100%;
-    height: 40px;
-    border-radius: 10px;
-    border: 1px solid #33404D;
-    /* padding-left: 10px; */
+.containerTitulo h1{
     font-size: 20px;
-    font-weight: 600;
-    outline: none;    
-}
-.tituloLbl, .descLbl, .categoriaLbl{
     color: white;
+}
+.containerDesc h1{
     font-size: 20px;
+    color: white;
+
+}
+.containerCategoria h1{
+    font-size: 20px;
+    color: white;
+
 }
 
 .containerDesc{
@@ -86,17 +88,18 @@ form{
     flex-direction: column;
 }
 .respostaDesc{
- width: 100%;
-    height: 40px;
-    border-radius: 10px;
+    width: 100%;
+    height: 300px;
     border: 1px solid #33404D;
-    /* padding-left: 10px; */
     font-size: 20px;
-    font-weight: 600;
-    outline: none;    
+    font-weight: 300;
+    outline: none;   
+    box-sizing: border-box; 
+    
+    background-color: white;
 }
 
-#categoria {
+.resposta{
     width: 100%; 
     height: 40px; 
     border-radius: 10px;
@@ -105,38 +108,30 @@ form{
     font-weight: 300;
     outline: none;   
     box-sizing: border-box; 
+    
+    display: flex;
+    align-items: center;
+    background-color: white;
 }
 
-.containerCategoria {
-    width: 70%; 
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    /* align-items: center;  */
-}
-.containerBtn{
+.containerRoletar{
     width: 70%;
     height: 80px;
     padding: 10px;
-
-    display: flex;
-    align-items: end;
-    justify-content: space-between;
     
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
-
-.containerBtn input{
-    width: 200px;
+.containerRoletar form{
+    width: 100%;
     height: 40px;
-    background-color: var(--colorBtn);
-    color: white;
-    border-radius: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    border: none;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
-
-.cadastroCategoriaBtn, .roletarBtn{
+.BtnRoletar, .BtnVoltar{
     width: 200px;
     height: 40px;
     background-color: var(--colorBtn);
@@ -149,30 +144,4 @@ form{
     align-items: center;
     justify-content: center;
     text-decoration: none;
-}
-
-#titulo:hover{
-    border: 3px solid var(--colorBorder);
-}
-#titulo:focus{
-    border: 3px solid var(--colorBorder);
-}
-
-#desc:hover{
-    border: 3px solid var(--colorBorder);
-}
-#desc:focus{
-    border: 3px solid var(--colorBorder);
-}
-
-
-#categoria:hover{
-    border: 3px solid var(--colorBorder);
-}
-#categoria:focus{
-    border: 3px solid var(--colorBorder);
-}
-
-.opcaoCategoria:hover{
-    border: 3px solid var(--colorBorder);
 }

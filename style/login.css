@@ -1,0 +1,121 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: monospace;   
+}
+
+:root{
+    --colorBtn: #4B1821;
+
+    --colorBorder: #a32738;
+}
+
+
+body{
+    width: 100%;
+    height: 100vh;
+    background-image: url(../img/backgroundHE.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.containerGeral{
+    
+    width: 80%;
+    height: 80%;
+
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 35px 7px 35px 7px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4.9px);
+    -webkit-backdrop-filter: blur(4.9px);
+    /* border: 1px solid rgba(255, 255, 255, 0.3); */
+    border: 1px solid var(--colorBorder);
+
+    display: flex;
+    align-self: center;
+    justify-content: center;
+}
+.containerImg{
+    width: 50%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.containerImg img{
+    width: 70%;
+    filter: drop-shadow(10px 10px 10px black);
+}
+form{
+    width: 50%;
+    height: 100%;
+
+    gap: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-left: 2px solid white;
+}
+.containerEmail, .containerPass{
+    width: 70%;
+    height: 80px;
+    border: 1px solid red;
+
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    flex-direction: column;
+}
+
+.containerEmail label,
+.containerPass label{
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+
+}
+
+.containerEmail input,
+.containerPass input{
+    width: 100%;
+    font-size: 15px;
+    padding: 10px;
+    font-weight: 600;
+    color: black;
+
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.inpLogar, .Cadastrar{
+    width: 200px;
+    height: 40px;
+    background-color: var(--colorBtn);
+    color: white;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.containerButtons{
+    width: 70%;
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
