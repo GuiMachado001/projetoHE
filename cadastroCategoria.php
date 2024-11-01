@@ -9,6 +9,9 @@
 
 </head>
 <body>
+
+    <?php include 'processa_cadastro.php'; ?>
+
     <div class="containerBox">
         <form action="processa_cadastro.php" method="POST">
             <div class="containerTile">
